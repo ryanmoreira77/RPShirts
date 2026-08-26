@@ -1,6 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Autenticação (Supabase Auth)
-   ========================================================= */
+
 
 async function getSession(){
   const { data, error } = await sb.auth.getSession();
@@ -8,10 +6,7 @@ async function getSession(){
   return data.session;
 }
 
-/**
- * Verifica se há uma sessão válida. Se não houver, redireciona
- * para o login. Retorna a sessão (ou null, já tendo redirecionado).
- */
+
 async function requireAuthCloud(){
   const session = await getSession();
   if(!session){
