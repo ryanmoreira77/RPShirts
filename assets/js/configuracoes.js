@@ -1,6 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Configurações
-   ========================================================= */
+
 let novoLogoDataUrl = null;
 const CORES_DISPONIVEIS = ['#e11d2e', '#0c0c0c', '#1d4ed8', '#0f766e', '#7c3aed', '#c2410c'];
 let corSelecionada = '#e11d2e';
@@ -58,7 +56,7 @@ function carregarFormulario(){
 }
 
 async function salvarConfiguracoes(){
-  const nome = document.getElementById('cfgNome').value.trim() || 'Kadu Camisas de Time';
+  const nome = document.getElementById('cfgNome').value.trim() || 'RP Shirts';
   const settings = getSettings();
 
   const r = await saveSettingsCloud({
