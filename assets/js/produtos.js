@@ -1,6 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Produtos (CRUD completo, Supabase)
-   ========================================================= */
+
 let produtosCache = [];
 let editingId = null;
 let deletingId = null;
