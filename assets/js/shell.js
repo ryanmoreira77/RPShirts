@@ -1,9 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Sidebar (4 seções) e Header compartilhados
-   Dashboard e Catálogo são públicos (sem login).
-   Produtos e Configurações pedem só a senha da loja (login real
-   por trás, com e-mail fixo, pra manter a segurança no banco).
-   ========================================================= */
+
 const OWNER_EMAIL = 'jenniferrodriguesruffo@gmail.com';
 
 const NAV_ICONS = {
@@ -32,10 +27,7 @@ const PAGE_META = {
   config:     { title:'Configurações', sub:'Logo, nome da empresa, cores e dados da loja' },
 };
 
-/** Mostra uma telinha só de senha (e-mail fixo por trás) cobrindo a
- *  página inteira. Ao acertar a senha, faz login real no Supabase
- *  (garante que edição/exclusão continuem protegidas no banco) e
- *  chama onSuccess(). */
+
 function renderPasswordGate(onSuccess){
   const wrap = document.createElement('div');
   wrap.className = 'overlay open';
@@ -87,12 +79,7 @@ function renderPasswordGate(onSuccess){
   input.addEventListener('keydown', e=>{ if(e.key === 'Enter') tentar(); });
 }
 
-/**
- * @param {string} active - chave da página atual
- * @param {{requireAuth?: boolean}} opts - se requireAuth for true,
- *   a página fica bloqueada por senha até logar (Produtos e
- *   Configurações). Nas demais, o acesso é público.
- */
+
 async function renderShell(active, opts){
   const requireAuth = !!(opts && opts.requireAuth);
   let session = await getSession();
