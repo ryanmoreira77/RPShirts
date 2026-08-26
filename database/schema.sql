@@ -1,14 +1,4 @@
--- =========================================================
--- KADU CAMISAS DE TIME — Schema do banco (Supabase / Postgres)
--- =========================================================
--- Como usar: cole este arquivo inteiro no SQL Editor do seu
--- projeto Supabase (Supabase Dashboard > SQL Editor > New query)
--- e clique em "Run".
---
--- Cada camisa (produto) pode ter vários tamanhos, cada um com sua
--- própria quantidade em estoque — por isso o estoque fica em uma
--- tabela separada (tamanhos_estoque), ligada ao produto.
--- =========================================================
+
 
 -- ===== TABELA: produtos (dados do modelo de camisa) =====
 create table if not exists produtos (
