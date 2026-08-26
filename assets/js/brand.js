@@ -1,9 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Marca dinâmica + Toasts
-   ========================================================= */
 
-/* Aplica logo/nome/cor personalizados (ajustados em Configurações)
-   em qualquer elemento marcado com data-brand-name / data-brand-logo */
 function applyBranding(){
   const settings = getSettings();
 
@@ -13,7 +8,7 @@ function applyBranding(){
   document.querySelectorAll('[data-brand-logo]').forEach(el=>{
     el.src = settings.logoDataUrl || 'assets/img/logo.svg';
   });
-  document.title = document.title.replace('Kadu Camisas de Time', settings.companyName);
+  document.title = document.title.replace('RP Shirts', settings.companyName);
 
   if(settings.accentColor){
     document.documentElement.style.setProperty('--red', settings.accentColor);
