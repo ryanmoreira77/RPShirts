@@ -1,4 +1,4 @@
-# Kadu Camisas de Time — Sistema de Gestão de Estoque
+# Sistema de Gestão de Estoque
 
 Versão atual: **Dashboard e Catálogo são públicos** (qualquer cliente pode
 acessar direto, sem login). **Produtos e Configurações** pedem apenas uma
