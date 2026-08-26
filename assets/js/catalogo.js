@@ -1,6 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Catálogo (galeria + PDF para clientes)
-   ========================================================= */
+
 let produtosCat = [];
 let selecionados = new Set();
 
