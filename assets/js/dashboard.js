@@ -1,7 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Dashboard
-   Versão simplificada: sem preço/vendas (acesso liberado a clientes)
-   ========================================================= */
+
 (async function(){
   await renderShell('dashboard');
 
