@@ -1,10 +1,4 @@
-/* =========================================================
-   KADU CAMISAS DE TIME — Camada de dados
-   Migrado do localStorage para o Supabase (banco na nuvem).
-   Mantém, sempre que possível, os mesmos nomes de função usados
-   antes, para que as outras páginas mudem o mínimo possível —
-   a diferença é que agora todas essas funções são assíncronas.
-   ========================================================= */
+
 const LOW_STOCK = 5;
 const PARADO_DIAS = 30;
 
@@ -20,12 +14,7 @@ function totalQtd(produto){
   return Object.values(produto.tamanhos || {}).reduce((s,n)=>s+(Number(n)||0), 0);
 }
 
-/* =================== PRODUTOS =================== */
 
-/** Busca todos os produtos do usuário logado, já com o mapa de
- *  tamanhos (ex: {PP:0,P:4,M:8,...}) montado a partir da tabela
- *  tamanhos_estoque — assim o resto do sistema continua lendo
- *  produto.tamanhos[tamanho] normalmente. */
 async function getProducts(){
   const { data: produtosRows, error } = await sb
     .from('produtos')
@@ -106,8 +95,7 @@ async function deleteProduct(id){
   return { ok:true };
 }
 
-/** Upload de foto para o bucket "fotos" do Supabase Storage.
- *  Recebe um File (input type=file) e devolve a URL pública. */
+
 async function uploadFotoProduto(file){
   const { data: userData } = await sb.auth.getUser();
   const ext = file.name.split('.').pop();
@@ -118,11 +106,7 @@ async function uploadFotoProduto(file){
   return { ok:true, url: data.publicUrl };
 }
 
-/**
- * "Achata" produtos em linhas de produto+tamanho — usado em estoque
- * baixo, movimentações e relatório de estoque. Recebe a lista de
- * produtos já carregada (para não repetir a busca ao banco).
- */
+
 function getEstoqueLinhas(produtos){
   const linhas = [];
   produtos.forEach(p=>{
@@ -134,10 +118,7 @@ function getEstoqueLinhas(produtos){
   return linhas;
 }
 
-/* =================== MOVIMENTAÇÕES DE ESTOQUE =================== */
 
-/** Chama a função registrar_movimentacao no banco, que atualiza o
- *  tamanho do produto e grava o histórico numa única transação. */
 async function registrarMovimentacao({ produtoId, tamanho, tipo, quantidade, motivo, observacao }){
   const { data, error } = await sb.rpc('registrar_movimentacao', {
     p_produto_id: produtoId,
